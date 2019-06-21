@@ -1,0 +1,18 @@
+<% if logged_in? %>
+  <div> 
+    <%= form_tag(users_path, method: "get") do %>
+      <%= label_tag :search, "検索ワード" %><%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "検索" %>
+    <% end %>
+  </div>
+  <%= @users.each do |user| %>
+    <%= user.name %><%= link_to user.name, user_path(user) %>
+  <% end %>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>素敵なランチタイムを。</h1>
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg  btn-primary' %>
+    </div>
+  </div>
+<% end %>

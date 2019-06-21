@@ -1,0 +1,23 @@
+<div class="row">
+  <aside class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @user.name %></h3>
+      </div>
+      <p>
+        <strong>Avatar path:</strong>
+        <%= @user.avatar_path %>
+      </p>
+      <p>
+        <%= image_tag @user.avatar_path %>
+      </p>
+    </div>
+    <%= render 'relationships/follow_button', user: @user %>
+  </aside>
+  <div>
+    <li><%= @user.grade %></li>
+    <li><%= @user.sex %></li>
+    <li><%= @user.department %></li>
+    <li><%= @user.introduce %></li>
+  </div>
+</div>

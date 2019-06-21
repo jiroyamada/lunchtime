@@ -1,0 +1,19 @@
+<h1>id: <%= @text.id %>のテキスト詳細ページ</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>id</th>
+    <td><%= @text.id %></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @text.title %></td>
+  </tr>
+  <tr>
+    <th>メッセージ</th>
+    <td><%= @text.content %></td>
+  </tr>
+</table>
+
+<%= link_to 'このテキストを編集する',edit_text_path(@text), class: 'btn btn-default' %>
+<%= link_to 'このテキストを削除する',@text, method: :delete,data: { confirm: '本当に削除してよろしいですか？'},class: 'btn btn-danger' %>

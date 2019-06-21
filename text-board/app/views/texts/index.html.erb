@@ -1,0 +1,27 @@
+<h1>テキスト一覧</h1>
+
+<% if @texts.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>タイトル</th>
+        <th>テキスト</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @texts.each do |text| %>
+        <tr>
+          <td><%=link_to text.id,text %></td>
+          <td><%= text.title %></td>
+          <td><%= text.content %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= paginate @texts %>
+  </div>
+  <% end %>
+
+<%= link_to '新規テキストの投稿', new_text_path,class: "btn btn-primary"%>
